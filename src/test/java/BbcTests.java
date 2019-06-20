@@ -28,25 +28,21 @@ public class BbcTests {
 
     @Test
     public void testOver13RegisterError() throws InterruptedException {
-        //input to decide whether 13 or under 13
+        //input to decide whether 13 or under 13?
         bbcSite.getBbcRegisterPage().goToRegisterPage();
-        Thread.sleep(1000);
-        bbcSite.getBbcRegisterPage().clickOver13Button();
+        Thread.sleep(4000);
         bbcSite.getBbcRegisterPage().clickOver13Button();
         Thread.sleep(1000);
         bbcSite.getBbcRegisterPage().inputDay("10");
         bbcSite.getBbcRegisterPage().inputMonth("08");
         bbcSite.getBbcRegisterPage().inputYear("1995");
         bbcSite.getBbcRegisterPage().clickContinueButton();
-        bbcSite.getBbcRegisterPage().clickContinueButton();
-        bbcSite.getBbcRegisterPage().inputEmail("fakeaccount@gmail.com");
+        Thread.sleep(4000);
+        bbcSite.getBbcRegisterPage().inputEmail("sarbas45@gmail.com");
         bbcSite.getBbcRegisterPage().inputPassword("12345");
         bbcSite.getBbcRegisterPage().inputPostCode("w2 4jd");
         bbcSite.getBbcRegisterPage().selectGender("Other");
-        //bbcSite.getBbcRegisterPage().clickContinueButton();
-        Assert.assertEquals("Sorry, that password is too short. It needs to be eight characters or more", bbcSite.getBbcRegisterPage().getPasswordErrorText());
-
-
+        Assert.assertEquals("Sorry, that password is too short. It needs to be eight characters or more.", bbcSite.getBbcRegisterPage().getPasswordErrorText());
     }
     @Test
     public void testUnder13Register(){
